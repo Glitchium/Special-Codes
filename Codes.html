@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Code</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* Needed for positioning */
+            background-color: #f0f0f0; /* Fallback color */
+            background-image: url('https://tr.rbxcdn.com/043ecfa62b8acabdd91d969ade59185c/768/432/Image/Webp');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden; /* Prevent blurred image overflow */
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            filter: blur(12px); /* Adjust the blur amount as needed */
+            z-index: -1; /* Behind other content */
+        }
+        .container {
+            text-align: center;
+            margin-bottom: 50px; /* Space between textboxes and icon buttons */
+            z-index: 1; /* Ensure content appears above the blurred background */
+        }
+        input[type="text"] {
+            display: block;
+            width: 300px;
+            padding: 10px;
+            margin: 10px auto;
+            text-align: left;
+            border: 2px solid white; /* thicker border */
+            outline: none;
+            transition: border-color 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            font-weight: bold; /* Bold placeholder text */
+        }
+        input[type="text"]::placeholder {
+            font-weight: bold; /* Bold placeholder text */
+        }
+        input[type="text"]:focus {
+            border-color: lightblue;
+        }
+        button.redeem {
+            display: block;
+            width: 320px;
+            padding: 10px;
+            margin: 10px auto;
+            background-color: #007bff;
+            color: white;
+            border: 2px solid transparent; /* thicker initial border */
+            outline: 2px solid transparent; /* thicker initial outline */
+            cursor: pointer;
+            transition: border-width 0.3s ease, outline-width 0.3s ease, font-weight 0.3s ease, transform 0.1s ease-out;
+            font-weight: bold; /* bold text */
+        }
+        button.redeem:hover {
+            border-width: 4px; /* thicker border on hover */
+            outline-width: 4px; /* thicker outline on hover */
+            background-color: #0056b3;
+        }
+        button.redeem:active {
+            transform: scale(0.95); /* scale down slightly on click */
+        }
+        .icon-buttons {
+            position: absolute;
+            bottom: 20px; /* Adjust as needed */
+            display: flex;
+            justify-content: center; /* Align items to the center horizontally */
+            width: 100%; /* Full width */
+            text-align: center; /* Center align text within the buttons */
+            z-index: 1; /* Ensure icons appear above the blurred background */
+        }
+        .icon-buttons button {
+            width: 50px; /* Adjust as needed */
+            height: 50px; /* Adjust as needed */
+            margin: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon-buttons button img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .icon-buttons button:hover {
+            transform: scale(1.1); /* Scale up slightly on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Code">
+        <input type="text" placeholder="Roblox Username">
+        <button class="redeem">Redeem</button>
+    </div>
+    <div class="icon-buttons">
+        <button onclick="window.open('https://www.youtube.com/@glitchium', '_blank')"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube"></button>
+        <button onclick="window.open('https://www.roblox.com/users/2859316136/profile', '_blank')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Roblox_Logo.svg/2048px-Roblox_Logo.svg.png" alt="Roblox"></button>
+        <button onclick="window.open('https://discord.gg/4fmhpNzvkt', '_blank')"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png" alt="Discord"></button>
+        <button onclick="window.open('https://x.com/Glitchium_', '_blank')"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" alt="X"></button>
+    </div>
+</body>
+</html>
