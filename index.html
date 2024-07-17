@@ -109,9 +109,9 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" placeholder="Code">
-        <input type="text" placeholder="Roblox Username">
-        <button class="redeem">Redeem</button>
+        <input type="text" id="code" placeholder="Code">
+        <input type="text" id="username" placeholder="Roblox Username">
+        <button class="redeem" onclick="redeemCode()">Redeem</button>
     </div>
     <div class="icon-buttons">
         <button onclick="window.open('https://www.youtube.com/@glitchium', '_blank')"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube"></button>
@@ -119,5 +119,30 @@
         <button onclick="window.open('https://discord.gg/4fmhpNzvkt', '_blank')"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png" alt="Discord"></button>
         <button onclick="window.open('https://x.com/Glitchium_', '_blank')"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" alt="X"></button>
     </div>
+    <script>
+        async function redeemCode() {
+            const code = document.getElementById('code').value;
+            const username = document.getElementById('username').value;
+
+            const data = {
+                code: code,
+                username: username
+            };
+
+            try {
+                const response = await fetch('http://localhost:8000/redeem', {  // Replace with your Roblox server URL
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                console.log(result);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
 </body>
 </html>
